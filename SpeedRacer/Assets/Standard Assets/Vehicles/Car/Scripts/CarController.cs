@@ -274,6 +274,7 @@ namespace UnityStandardAssets.Vehicles.Car
             // loop through all wheels
             for (int i = 0; i < 4; i++)
             {
+                /*
                 WheelHit wheelHit;
                 m_WheelColliders[i].GetGroundHit(out wheelHit);
 
@@ -298,6 +299,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
                 // end the trail generation
                 m_WheelEffects[i].EndSkidTrail();
+                */
             }
         }
 
