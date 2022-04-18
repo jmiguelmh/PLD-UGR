@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LapTimeManager : MonoBehaviour
 {
-    public static int minuteCount;
-    public static int secondCount;
-    public static float milliCount;
-    public static string milliDisplay;
+    public int minuteCount;
+    public int secondCount;
+    public float milliCount;
+    public string milliDisplay;
 
     public GameObject minuteBox;
     public GameObject secondBox;

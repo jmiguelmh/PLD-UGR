@@ -6,10 +6,15 @@ public class HalfPointTrigger : MonoBehaviour
 {
     public GameObject LapCompleteTrigger;
     public GameObject HalfLapTrigger;
+    public GameObject Car;
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider collider)
     {
-        LapCompleteTrigger.SetActive(true);
-        HalfLapTrigger.SetActive(false);
+        if (collider.gameObject == Car)
+        {
+            LapCompleteTrigger.SetActive(true);
+            HalfLapTrigger.SetActive(false);
+        }
+
     }
 }
