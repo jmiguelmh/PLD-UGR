@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,17 +10,20 @@ public class LapComplete : MonoBehaviour
     public GameObject SecondDisplay;
     public GameObject MillisDisplay;
 
-    public GameObject LapTimeBox;
-
     public LapTimeManager TimeManager;
+
+    public GameObject car;
 
     public GameObject LapCounter;
     public int LapsDone;
+    public int maxLaps;
 
     private void OnTriggerEnter(Collider other)
     {
+        // Aumentamos el numero de vueltas
         LapsDone += 1;
 
+        // Actualizamos el marcador
         SecondDisplay.GetComponent<Text>().text = TimeManager.secondCount <= 9
            ? $"0{TimeManager.secondCount}:"
            : $"{TimeManager.secondCount}:";
@@ -33,12 +34,30 @@ public class LapComplete : MonoBehaviour
 
         MillisDisplay.GetComponent<Text>().text = $"{(int)TimeManager.milliCount}";
 
+        // Reseteamos cronometro
         TimeManager.minuteCount = 0;
         TimeManager.secondCount = 0;
         TimeManager.milliCount = 0;
+
+        // Actualizamos cuenta vueltas
         LapCounter.GetComponent<Text>().text = "" + LapsDone;
 
+        // Reseteamos triggers
         HalfLapTrigger.SetActive(true);
         LapCompleteTrigger.SetActive(false);
+
+        // Si ha terminado la carrera...
+        if (LapsDone == maxLaps)
+        {
+            // Deshabilitar controles del coche
+            foreach (MonoBehaviour script in car.GetComponents<MonoBehaviour>())
+            {
+                script.enabled = false;
+            }
+
+            // Detener cronometro
+            this.TimeManager.raceHasEnded();
+
+        }
     }
 }

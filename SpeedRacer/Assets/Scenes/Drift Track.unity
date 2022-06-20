@@ -7965,10 +7965,11 @@ MonoBehaviour:
   MinuteDisplay: {fileID: 1777456535}
   SecondDisplay: {fileID: 310913084}
   MillisDisplay: {fileID: 164823698}
-  LapTimeBox: {fileID: 0}
   TimeManager: {fileID: 725680234}
+  car: {fileID: 688194046}
   LapCounter: {fileID: 431934571}
   LapsDone: 0
+  maxLaps: 3
 --- !u!1 &139516932
 GameObject:
   m_ObjectHideFlags: 0
@@ -111377,10 +111378,11 @@ MonoBehaviour:
   MinuteDisplay: {fileID: 1227101864}
   SecondDisplay: {fileID: 652499084}
   MillisDisplay: {fileID: 2084124588}
-  LapTimeBox: {fileID: 0}
   TimeManager: {fileID: 1091446961}
+  car: {fileID: 1427848812}
   LapCounter: {fileID: 1771108243}
   LapsDone: 0
+  maxLaps: 3
 --- !u!65 &1929583467
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121943,7 +121945,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2131707977}
-  - component: {fileID: 2131707978}
   m_Layer: 0
   m_Name: road
   m_TagString: Untagged
@@ -121965,18 +121966,6 @@ Transform:
   m_Father: {fileID: 316827363}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2131707978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131707976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120248a0e25d5a941bbc30c8676492c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2133207561
 GameObject:
   m_ObjectHideFlags: 0
