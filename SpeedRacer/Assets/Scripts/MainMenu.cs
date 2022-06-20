@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void jugar()
+    public void loadDriftTrack()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Drift Track");
+    }
+
+    public void loadSprintTrack()
+    {
+        SceneManager.LoadScene("Sprint Track");
     }
 
     public void salir()

@@ -18,6 +18,11 @@ public class LapComplete : MonoBehaviour
     public int LapsDone;
     public int maxLaps;
 
+    public GameObject MenuResultadosUI;
+    public GameObject otroCoche;
+    public GameObject ganador;
+    public string nombre;
+
     private void OnTriggerEnter(Collider other)
     {
         // Aumentamos el numero de vueltas
@@ -49,8 +54,13 @@ public class LapComplete : MonoBehaviour
         // Si ha terminado la carrera...
         if (LapsDone == maxLaps)
         {
-            // Deshabilitar controles del coche
+            // Deshabilitar controles ambos coches
             foreach (MonoBehaviour script in car.GetComponents<MonoBehaviour>())
+            {
+                script.enabled = false;
+            }
+
+            foreach (MonoBehaviour script in otroCoche.GetComponents<MonoBehaviour>())
             {
                 script.enabled = false;
             }
@@ -58,6 +68,9 @@ public class LapComplete : MonoBehaviour
             // Detener cronometro
             this.TimeManager.raceHasEnded();
 
+            // Mostrar resultados
+            ganador.GetComponent<UnityEngine.UI.Text>().text = "Ganador: " + nombre;
+            MenuResultadosUI.SetActive(true);
         }
     }
 }
