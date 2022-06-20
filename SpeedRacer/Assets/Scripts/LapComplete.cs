@@ -16,8 +16,13 @@ public class LapComplete : MonoBehaviour
 
     public LapTimeManager TimeManager;
 
+    public GameObject LapCounter;
+    public int LapsDone;
+
     private void OnTriggerEnter(Collider other)
     {
+        LapsDone += 1;
+
         SecondDisplay.GetComponent<Text>().text = TimeManager.secondCount <= 9
            ? $"0{TimeManager.secondCount}:"
            : $"{TimeManager.secondCount}:";
@@ -31,6 +36,7 @@ public class LapComplete : MonoBehaviour
         TimeManager.minuteCount = 0;
         TimeManager.secondCount = 0;
         TimeManager.milliCount = 0;
+        LapCounter.GetComponent<Text>().text = "" + LapsDone;
 
         HalfLapTrigger.SetActive(true);
         LapCompleteTrigger.SetActive(false);
